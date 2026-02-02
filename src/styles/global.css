@@ -1,0 +1,45 @@
+@import './reset.css';
+@import './variables.css';
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+}
+
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+
+a {
+  transition: var(--transition);
+}
+
+/* Layout principal */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

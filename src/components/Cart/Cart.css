@@ -1,0 +1,13 @@
+.cart {
+  padding: 2rem;
+}
+
+.cart h2 {
+  margin-bottom: 2rem;
+}
+
+.cart-empty {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
