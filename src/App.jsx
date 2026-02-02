@@ -7,6 +7,7 @@ import Products from './components/Products/Products'
 import About from './components/About/About'
 import Contact from './components/Contact/Contact'
 import Cart from './components/Cart/Cart'
+import Checkout from './components/Checkout/Checkout'
 import Footer from './components/Footer/Footer'
 
 function App() {
@@ -28,6 +29,17 @@ function App() {
     }
     
     setCartCount(prev => prev + 1)
+  }
+
+  const handleCheckout = (items) => {
+    setCurrentPage('checkout')
+  }
+
+  const handleCheckoutComplete = (formData) => {
+    console.log('Pedido completado:', formData)
+    // Aquí se podría enviar los datos a un servidor
+    setCartItems([])
+    setCartCount(0)
   }
 
   const renderPage = () => {
@@ -62,7 +74,20 @@ function App() {
       case 'cart':
         return (
           <main>
-            <Cart items={cartItems} />
+            <Cart 
+              items={cartItems}
+              onCheckout={handleCheckout}
+            />
+          </main>
+        )
+      case 'checkout':
+        return (
+          <main>
+            <Checkout 
+              cartItems={cartItems}
+              onCheckoutComplete={handleCheckoutComplete}
+              onBack={() => setCurrentPage('home')}
+            />
           </main>
         )
       default:

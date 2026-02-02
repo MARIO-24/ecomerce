@@ -1,7 +1,7 @@
 import './Cart.css'
 import { useState } from 'react'
 
-export default function Cart({ items = [] }) {
+export default function Cart({ items = [], onCheckout }) {
   const [cartItems, setCartItems] = useState(items)
 
   const removeItem = (id) => {
@@ -90,7 +90,17 @@ export default function Cart({ items = [] }) {
           </div>
 
           <div className="cart-actions">
-            <button className="btn-checkout">Proceder al pago</button>
+            <button 
+              className="btn-checkout"
+              onClick={() => {
+                if (onCheckout) {
+                  onCheckout(cartItems)
+                }
+              }}
+              disabled={cartItems.length === 0}
+            >
+              Proceder al pago
+            </button>
             <button className="btn-continue">← Continuar comprando</button>
           </div>
         </>
