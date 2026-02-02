@@ -82,11 +82,14 @@ const PRODUCTS = [
   }
 ]
 
-export default function Home() {
+export default function Home({ onAddToCart }) {
   const [cartCount, setCartCount] = useState(0)
   const [notification, setNotification] = useState('')
 
   const handleAddToCart = (product) => {
+    if (onAddToCart) {
+      onAddToCart(product)
+    }
     setCartCount(prev => prev + 1)
     setNotification(`${product.name} agregado al carrito`)
     setTimeout(() => setNotification(''), 2000)
