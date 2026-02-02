@@ -1,13 +1,232 @@
 .cart {
-  padding: 2rem;
+  padding: var(--spacing-xl);
+  max-width: 1000px;
 }
 
-.cart h2 {
-  margin-bottom: 2rem;
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-2xl);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 2px solid #eee;
+}
+
+.cart-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.cart-badge {
+  background-color: #007bff;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .cart-empty {
   text-align: center;
-  padding: 2rem;
-  color: #666;
+  padding: var(--spacing-2xl);
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius-lg);
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.cart-empty h3 {
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.cart-empty p {
+  color: var(--text-light);
+  margin-bottom: var(--spacing-xl);
+}
+
+.continue-shopping {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.continue-shopping:hover {
+  background-color: #0056b3;
+}
+
+.cart-items {
+  margin-bottom: var(--spacing-xl);
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 80px 1fr 120px 100px 80px;
+  gap: var(--spacing-md);
+  align-items: center;
+  padding: var(--spacing-md);
+  border: 1px solid #eee;
+  border-radius: var(--border-radius-lg);
+  background-color: white;
+  margin-bottom: var(--spacing-md);
+}
+
+.cart-item-image {
+  font-size: 2rem;
+  text-align: center;
+  background-color: var(--bg-light);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+}
+
+.cart-item-info h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+}
+
+.cart-item-price {
+  color: #007bff;
+  font-weight: bold;
+  margin: 0;
+}
+
+.cart-item-quantity {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.cart-item-quantity button {
+  background: none;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: #007bff;
+  transition: var(--transition);
+}
+
+.cart-item-quantity button:hover {
+  background-color: var(--bg-light);
+}
+
+.cart-item-quantity input {
+  width: 40px;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  background: none;
+}
+
+.cart-item-quantity input::-webkit-outer-spin-button,
+.cart-item-quantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.cart-item-total {
+  font-weight: bold;
+  text-align: right;
+  color: var(--text-dark);
+}
+
+.cart-item-remove {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cart-item-remove:hover {
+  transform: scale(1.2);
+}
+
+.cart-summary {
+  background-color: var(--bg-light);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+  font-size: 0.95rem;
+}
+
+.summary-row.total {
+  border-top: 2px solid #ddd;
+  padding-top: var(--spacing-md);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.free {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.cart-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.btn-checkout,
+.btn-continue {
+  padding: 1rem;
+  border: none;
+  border-radius: var(--border-radius-lg);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-checkout {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-checkout:hover {
+  background-color: #218838;
+}
+
+.btn-continue {
+  background-color: white;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+
+.btn-continue:hover {
+  background-color: var(--bg-light);
+}
+
+@media (max-width: 768px) {
+  .cart-item {
+    grid-template-columns: 60px 1fr 60px;
+    gap: var(--spacing-sm);
+  }
+
+  .cart-item-total,
+  .cart-item-remove {
+    display: none;
+  }
+
+  .cart-actions {
+    grid-template-columns: 1fr;
+  }
 }
